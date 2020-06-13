@@ -11,8 +11,9 @@
 <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="5dp"
-    android:elevation="10dp">
+    app:cardCornerRadius="10dp"
+    android:elevation="10dp"
+    app:cardBackgroundColor="#E6DFDF">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,30 +22,32 @@
 
         <RelativeLayout
             android:id="@+id/stateLayout"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="130dp"
             android:layout_weight="1">
 
         <TextView
             android:id="@+id/state"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/state"
             android:textStyle="bold"
             android:textSize="15sp"
+            android:layout_margin="8dp"
+            android:padding="5dp"
             android:layout_centerInParent="true"
             android:textColor="#000"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/casesLayout"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="130dp"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/totalCasesStatic"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/total_cases"
                 android:textSize="13sp"
@@ -52,7 +55,7 @@
 
             <TextView
                 android:id="@+id/totalCases"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/total_cases_number"
                 android:layout_below="@+id/totalCasesStatic"
@@ -62,7 +65,7 @@
 
             <TextView
                 android:id="@+id/activeCasesStatic"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/active_cases"
                 android:textSize="13sp"
@@ -72,7 +75,7 @@
 
             <TextView
                 android:id="@+id/activeCases"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/active_cases_number"
                 android:textSize="15sp"
@@ -82,13 +85,13 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="130dp"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/deathsStatic"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/deaths"
                 android:textSize="13sp"
@@ -96,7 +99,7 @@
 
             <TextView
                 android:id="@+id/deaths"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/deaths_number"
                 android:layout_below="@+id/deathsStatic"
@@ -106,7 +109,7 @@
 
             <TextView
                 android:id="@+id/recoveredStatic"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/recovered"
                 android:textSize="13sp"
@@ -116,7 +119,7 @@
 
             <TextView
                 android:id="@+id/recovered"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/recovered_number"
                 android:textSize="15sp"

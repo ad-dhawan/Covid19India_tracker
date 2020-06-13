@@ -1,4 +1,4 @@
-package com.example.covid19tracker
+package com.example.covid19tracker.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +9,10 @@ import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.covid19tracker.R
 import com.example.covid19tracker.fragments.CasesFragment
 import com.example.covid19tracker.fragments.FeedBackFragment
+import com.example.covid19tracker.fragments.NewsFragment
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -68,6 +70,17 @@ class MainActivity : AppCompatActivity() {
                         .commit()
 
                     supportActionBar?.title="Feedback"
+                    drawerLayout.closeDrawers()
+                }
+
+                R.id.news -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.frameLayout,
+                        NewsFragment()
+                    )
+                        .commit()
+
+                    supportActionBar?.title="News"
                     drawerLayout.closeDrawers()
                 }
             }

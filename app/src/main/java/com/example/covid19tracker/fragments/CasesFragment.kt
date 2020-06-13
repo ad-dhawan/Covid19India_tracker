@@ -37,6 +37,7 @@ class CasesFragment : Fragment() {
     lateinit var tvRecovered: TextView1
     lateinit var tvActiveCases: TextView1
     lateinit var tvNewCases: TextView1
+    lateinit var tvLastUpdated: TextView1
 
     lateinit var recyclerDashboard: RecyclerView
     lateinit var layoutManager: RecyclerView.LayoutManager
@@ -55,6 +56,13 @@ class CasesFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_cases, container, false)
 
+        tvTotalCases = view.findViewById(R.id.tvTotalCases)
+        tvDeaths = view.findViewById(R.id.tvDeaths)
+        tvRecovered = view.findViewById(R.id.tvRecovered)
+        tvActiveCases = view.findViewById(R.id.tvActiveCases)
+        tvNewCases = view.findViewById(R.id.tvNewCases)
+        tvLastUpdated = view.findViewById(R.id.tvLastUpdated)
+
         recyclerDashboard = view.findViewById(R.id.recyclerDashboard)
         layoutManager = LinearLayoutManager(activity)
 
@@ -62,7 +70,14 @@ class CasesFragment : Fragment() {
 //        progressBar = view.findViewById(R.id.progressBar)
 //
 //        progressLayout.visibility = View.VISIBLE
+        allStatistics()
 
+
+        return view
+        }
+
+
+    fun allStatistics(){
         val queue = Volley.newRequestQueue(activity as Context)
         val url = "https://api.covid19india.org/data.json"
 
@@ -72,9 +87,20 @@ class CasesFragment : Fragment() {
                 object : JsonObjectRequest(Method.GET, url, null, Response.Listener {
 
                     try {
+//                        progressLayout.visibility = View.GONE
 
                         val statewise = it.getJSONArray("statewise")
-                        for (i in 1 until statewise.length()) {
+
+                        val totalStatisticsObject = statewise.getJSONObject(0)
+                        tvTotalCases.text = totalStatisticsObject.getString("confirmed")
+                        tvDeaths.text = totalStatisticsObject.getString("deaths")
+                        tvRecovered.text = totalStatisticsObject.getString("recovered")
+                        tvActiveCases.text = totalStatisticsObject.getString("active")
+                        tvLastUpdated.text = totalStatisticsObject.getString("lastupdatedtime")
+                        tvNewCases.text = totalStatisticsObject.getString("deltaconfirmed")
+
+
+                        for (i in 1 until 33) {
                             val statisticsJsonObject = statewise.getJSONObject(i)
                             val statisticsObject = Statistics(
                                 statisticsJsonObject.getString("state"),
@@ -110,30 +136,29 @@ class CasesFragment : Fragment() {
                 }) {
                     override fun getHeaders(): MutableMap<String, String> {
                         val headers = HashMap<String, String>()
+                        headers["Content-type"] = "application/json"
+                        headers["token"] = "04c3f94096a169"
                         return headers
                     }
-
                 }
             queue.add(jsonObjectRequest)
         }else{
-                val dialog = AlertDialog.Builder(activity as Context)
-                dialog.setTitle("Failure!")
-                dialog.setMessage("Internet not available")
-                dialog.setPositiveButton("Open settings"){text, listner ->
-                    val settingsIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
-                    startActivity(settingsIntent)
-                    activity?.finish()
-                }
-                dialog.setNegativeButton("Exit"){text, listener ->
-                    ActivityCompat.finishAffinity(activity as Activity)
-                }
-                dialog.create()
-                dialog.show()
+            val dialog = AlertDialog.Builder(activity as Context)
+            dialog.setTitle("Failure!")
+            dialog.setMessage("Internet not available")
+            dialog.setPositiveButton("Open settings"){text, listner ->
+                val settingsIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
+                startActivity(settingsIntent)
+                activity?.finish()
             }
-        return view
+            dialog.setNegativeButton("Exit"){text, listener ->
+                ActivityCompat.finishAffinity(activity as Activity)
+            }
+            dialog.create()
+            dialog.show()
         }
-
-
     }
+    }
+// news api key -> f56265da815940c781ee2ac47e3f1109
 
 
