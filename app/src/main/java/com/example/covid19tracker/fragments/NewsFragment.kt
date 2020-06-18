@@ -34,8 +34,8 @@ class NewsFragment : Fragment() {
 
     lateinit var recyclerNews: RecyclerView
     lateinit var layoutManager: RecyclerView.LayoutManager
-//    lateinit var progressLayout: RelativeLayout
-//    lateinit var progressBar: ProgressBar
+    lateinit var progressLayout: RelativeLayout
+    lateinit var progressBar: ProgressBar
     lateinit var recyclerAdapter: NewsRecyclerAdapter
 
     val newsList = arrayListOf<News>()
@@ -49,21 +49,21 @@ class NewsFragment : Fragment() {
 
         recyclerNews = view.findViewById(R.id.recyclerView)
         layoutManager = LinearLayoutManager(activity)
-//        progressLayout = view.findViewById(R.id.progressLayout)
-//        progressBar = view.findViewById(R.id.progressBar)
-//
-//        progressLayout.visibility = View.GONE
+        progressLayout = view.findViewById(R.id.progressLayout)
+        progressBar = view.findViewById(R.id.progressBar)
+
+        progressLayout.visibility = View.GONE
 
 
         val queue = Volley.newRequestQueue(activity as Context)
-        val url = "http://newsapi.org/v2/top-headlines"
+        val url = "http://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=f56265da815940c781ee2ac47e3f1109"
 
         if (ConnectionManager().checkConnectivity(activity as Context)){
 
             val jsonObjectRequest = object : JsonObjectRequest(Method.GET, url, null, Response.Listener {
 
                 try {
-//                    progressLayout.visibility = View.GONE
+                    progressLayout.visibility = View.GONE
 
                         val articles = it.getJSONArray("articles")
                         for (i in 0 until articles.length()){
@@ -84,18 +84,15 @@ class NewsFragment : Fragment() {
                 }
 
             }, Response.ErrorListener {
-
                 if (activity != null){
-                    Toast.makeText(activity as Context, "Volley error occurred!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity as Context, "Unexpected error occurred!", Toast.LENGTH_SHORT).show()
                 }
-
             })
             {
                 override fun getHeaders(): MutableMap<String, String> {
                     val headers = HashMap<String, String>()
-                    headers["country"] = "in"
-                    headers["category"] = "health"
-                    headers["apiKey"] = "f56265da815940c781ee2ac47e3f1109"
+                    headers["Content-type"] = "application/json"
+                    headers["token"] = "f56265da815940c781ee2ac47e3f1109"
                     return headers
                 }
             }
@@ -105,7 +102,7 @@ class NewsFragment : Fragment() {
             val dialog = AlertDialog.Builder(activity as Context)
             dialog.setTitle("Failure!")
             dialog.setMessage("Internet not available")
-            dialog.setPositiveButton("Open settings"){text, listner ->
+            dialog.setPositiveButton("Open settings"){text, listener ->
                 val settingsIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
                 startActivity(settingsIntent)
                 activity?.finish()

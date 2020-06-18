@@ -146,7 +146,7 @@ class CasesFragment : Fragment() {
             val dialog = AlertDialog.Builder(activity as Context)
             dialog.setTitle("Failure!")
             dialog.setMessage("Internet not available")
-            dialog.setPositiveButton("Open settings"){text, listner ->
+            dialog.setPositiveButton("Open settings"){text, listener ->
                 val settingsIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
                 startActivity(settingsIntent)
                 activity?.finish()
