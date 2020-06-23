@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="3dp" >
+
+    <TextView
+        android:id="@+id/txtCountryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Country"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/txtCasesStatic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_below="@+id/txtCountryName"
+            android:layout_margin="5dp"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/txtCases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="---"
+            android:textSize="18sp"
+            android:textColor="#15b087"
+            android:layout_below="@+id/txtCasesStatic"
+            android:layout_margin="5dp"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/txtNewCases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="---"
+            android:textSize="15sp"
+            android:textColor="#15b087"
+            android:drawableStart="@drawable/img_arrow_up"
+            android:layout_below="@+id/txtCases"
+            android:layout_margin="3dp"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/txtDeathsStatic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deaths"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_below="@+id/txtCountryName"
+            android:layout_margin="5dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/txtDeaths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="---"
+            android:textSize="18sp"
+            android:textColor="#e83002"
+            android:layout_below="@+id/txtCasesStatic"
+            android:layout_margin="5dp"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/txtNewDeaths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="---"
+            android:textSize="15sp"
+            android:textColor="#e83002"
+            android:drawableStart="@drawable/img_arrow_up"
+            android:layout_below="@+id/txtCases"
+            android:layout_margin="3dp"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/txtRecoveredStatic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recovered"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_below="@+id/txtCountryName"
+            android:layout_margin="5dp"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/txtRecovered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="---"
+            android:textSize="18sp"
+            android:textColor="#5dc914"
+            android:layout_below="@+id/txtCasesStatic"
+            android:layout_margin="5dp"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/txtNewRecovered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="---"
+            android:textSize="15sp"
+            android:textColor="#5dc914"
+            android:drawableStart="@drawable/img_arrow_up"
+            android:layout_below="@+id/txtCases"
+            android:layout_margin="3dp"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/dividerLine"
+        style="@style/Divider"
+        android:layout_below="@+id/layout"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>

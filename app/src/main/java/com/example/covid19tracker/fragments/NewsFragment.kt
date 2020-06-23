@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,7 +53,7 @@ class NewsFragment : Fragment() {
         progressLayout = view.findViewById(R.id.progressLayout)
         progressBar = view.findViewById(R.id.progressBar)
 
-        progressLayout.visibility = View.GONE
+        progressLayout.visibility = View.VISIBLE
 
 
         val queue = Volley.newRequestQueue(activity as Context)

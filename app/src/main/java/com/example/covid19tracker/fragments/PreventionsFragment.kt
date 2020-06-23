@@ -12,14 +12,14 @@ import com.example.covid19tracker.R
 /**
  * A simple [Fragment] subclass.
  */
-class FeedBackFragment : Fragment() {
+class PreventionsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed_back, container, false)
+        return inflater.inflate(R.layout.fragment_preventions, container, false)
     }
 
 

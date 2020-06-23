@@ -1,10 +1,13 @@
 package com.example.covid19tracker.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.covid19tracker.R
@@ -24,6 +27,7 @@ class NewsRecyclerAdapter(val context: Context, val itemList: ArrayList<News>): 
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+
         val news = itemList[position]
         holder.title.text = news.title
         holder.publishedDate.text = news.publishedDate

@@ -15,9 +15,9 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/covid19_tracker"
-        android:textStyle="bold"
-        android:textColor="#ffffff"
+        android:text="@string/title"
+        android:fontFamily="@font/anton"
+        android:textColor="#fff"
         android:textSize="18sp"
         android:padding="20dp" />
 

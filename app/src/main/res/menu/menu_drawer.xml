@@ -12,8 +12,12 @@
             android:title="@string/news" />
 
         <item
-            android:id="@+id/feedback"
-            android:title="@string/feedback" />
+            android:id="@+id/global"
+            android:title="@string/global" />
+
+        <item
+            android:id="@+id/preventions"
+            android:title="@string/preventions" />
 
     </group>
 

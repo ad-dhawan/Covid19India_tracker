@@ -66,6 +66,8 @@ class CasesFragment : Fragment() {
         recyclerDashboard = view.findViewById(R.id.recyclerDashboard)
         layoutManager = LinearLayoutManager(activity)
 
+        recyclerDashboard.isNestedScrollingEnabled = false
+
 //        progressLayout = view.findViewById(R.id.progressLayout)
 //        progressBar = view.findViewById(R.id.progressBar)
 //

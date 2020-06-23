@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Covid19 Tracker</string>
+    <string name="preference_file_name">User Preferences</string>
     <string name="cases">Cases</string>
     <string name="feedback">Feedback</string>
     <string name="covid19_tracker">Covid19 Tracker</string>
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
+    <string name="sort">Sort</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -25,4 +27,15 @@
     <string name="last_updated_number">--/--/---- --:--:--</string>
     <string name="news">News</string>
     <string name="news_text_static">Top Health News</string>
+    <string name="title">Covid-19 Tracker</string>
+    <string name="description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of</string>
+    <string name="global">Global</string>
+    <string name="preventions">Preventions</string>
+    <string name="social_distancing">Social Distancing</string>
+    <string name="wash_hands">Wash Hands</string>
+    <string name="wear_mask">Wear Mask</string>
+    <string name="stay_safe_home">Stay Safe Stay Home</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="sneezing">Cover face while sneezing</string>
 </resources>

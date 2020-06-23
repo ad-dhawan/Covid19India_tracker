@@ -10,9 +10,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.covid19tracker.R
-import com.example.covid19tracker.fragments.CasesFragment
-import com.example.covid19tracker.fragments.FeedBackFragment
-import com.example.covid19tracker.fragments.NewsFragment
+import com.example.covid19tracker.fragments.*
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -62,16 +60,6 @@ class MainActivity : AppCompatActivity() {
                     openCases()
                     drawerLayout.closeDrawers()
                 }
-                R.id.feedback -> {
-                    supportFragmentManager.beginTransaction().replace(
-                        R.id.frameLayout,
-                        FeedBackFragment()
-                    )
-                        .commit()
-
-                    supportActionBar?.title="Feedback"
-                    drawerLayout.closeDrawers()
-                }
 
                 R.id.news -> {
                     supportFragmentManager.beginTransaction().replace(
@@ -83,6 +71,29 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title="News"
                     drawerLayout.closeDrawers()
                 }
+
+                R.id.global -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.frameLayout,
+                        GlobalFragment()
+                    )
+                        .commit()
+
+                    supportActionBar?.title="Global"
+                    drawerLayout.closeDrawers()
+                }
+
+                R.id.preventions -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.frameLayout,
+                        PreventionsFragment()
+                    )
+                        .commit()
+
+                    supportActionBar?.title="Preventions"
+                    drawerLayout.closeDrawers()
+                }
+
             }
 
             return@setNavigationItemSelectedListener true

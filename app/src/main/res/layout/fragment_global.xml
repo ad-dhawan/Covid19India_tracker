@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.GlobalFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtTotalStatic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Cases"
+        android:layout_centerHorizontal="true"
+        android:textSize="26sp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-----"
+        android:textColor="#15b087"
+        android:layout_below="@+id/txtTotalStatic"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txtNewTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-----"
+        android:textColor="#15b087"
+        android:drawableStart="@drawable/img_arrow_up"
+        android:drawablePadding="5dp"
+        android:layout_below="@+id/txtTotal"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/txtDeathsStatic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deaths"
+        android:layout_below="@+id/txtNewTotal"
+        android:layout_centerHorizontal="true"
+        android:textSize="26sp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtDeaths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-----"
+        android:textColor="#e83002"
+        android:layout_below="@+id/txtDeathsStatic"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txtNewDeaths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-----"
+        android:textColor="#e83002"
+        android:drawableStart="@drawable/img_arrow_up"
+        android:drawablePadding="5dp"
+        android:layout_below="@+id/txtDeaths"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/txtRecoveredStatic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recovered"
+        android:layout_below="@+id/txtNewDeaths"
+        android:layout_centerHorizontal="true"
+        android:textSize="26sp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/txtRecovered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-----"
+        android:textColor="#5dc914"
+        android:layout_below="@+id/txtRecoveredStatic"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/txtNewRecovered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-----"
+        android:textColor="#5dc914"
+        android:drawableStart="@drawable/img_arrow_up"
+        android:drawablePadding="5dp"
+        android:layout_below="@+id/txtRecovered"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/txtCountries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Countries"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/txtNewRecovered"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp" />
+
+    <ImageView
+        android:id="@+id/btnSort"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/img_sort"
+        android:clickable="true"
+        android:layout_below="@+id/txtNewRecovered"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:focusable="true" />
+
+    <View
+        android:id="@+id/dividerLine2"
+        style="@style/Divider"
+        android:layout_below="@+id/txtCountries" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCountries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dividerLine2"
+        android:layout_marginTop="20dp"
+        android:padding="10dp" />
+        </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
