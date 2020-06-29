@@ -4,6 +4,6 @@ data class Statistics(
     val state: String,
     val totalCases: String,
     val deaths: String,
-    val recovered: String,
-    val activeCases: String
+    val activeCases: String,
+    val recovered: String
 )

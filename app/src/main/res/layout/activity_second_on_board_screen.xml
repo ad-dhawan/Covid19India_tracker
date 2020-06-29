@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/onboard_screen_font"
-        android:text="Latest Covid-19 statistics in India"
+        android:text="Latest Covid-19 cases worldwide"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textColor="#000"

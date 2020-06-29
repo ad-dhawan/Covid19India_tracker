@@ -7,28 +7,25 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-
 import com.example.covid19tracker.R
 import com.example.covid19tracker.adapter.StatisticsRecyclerAdapter
 import com.example.covid19tracker.models.Statistics
 import com.example.covid19tracker.util.ConnectionManager
 import org.json.JSONException
+import kotlin.math.roundToInt
 import android.widget.TextView as TextView1
 
-/**
- * A simple [Fragment] subclass.
- */
 @Suppress("UNREACHABLE_CODE")
 class CasesFragment : Fragment() {
 
@@ -38,6 +35,8 @@ class CasesFragment : Fragment() {
     lateinit var tvActiveCases: TextView1
     lateinit var tvNewCases: TextView1
     lateinit var tvLastUpdated: TextView1
+    lateinit var tvDeathsRate: TextView1
+    lateinit var tvRecoveredRate: TextView1
 
     lateinit var recyclerDashboard: RecyclerView
     lateinit var layoutManager: RecyclerView.LayoutManager
@@ -62,6 +61,8 @@ class CasesFragment : Fragment() {
         tvActiveCases = view.findViewById(R.id.tvActiveCases)
         tvNewCases = view.findViewById(R.id.tvNewCases)
         tvLastUpdated = view.findViewById(R.id.tvLastUpdated)
+        tvDeathsRate = view.findViewById(R.id.tvDeathsRate)
+        tvRecoveredRate = view.findViewById(R.id.tvRecoveredRate)
 
         recyclerDashboard = view.findViewById(R.id.recyclerDashboard)
         layoutManager = LinearLayoutManager(activity)
@@ -73,7 +74,6 @@ class CasesFragment : Fragment() {
 //
 //        progressLayout.visibility = View.VISIBLE
         allStatistics()
-
 
         return view
         }
@@ -100,6 +100,16 @@ class CasesFragment : Fragment() {
                         tvActiveCases.text = totalStatisticsObject.getString("active")
                         tvLastUpdated.text = totalStatisticsObject.getString("lastupdatedtime")
                         tvNewCases.text = totalStatisticsObject.getString("deltaconfirmed")
+
+                        val deaths: Double = totalStatisticsObject.getString("deaths").toDouble()
+                        val recovered: Double = totalStatisticsObject.getString("recovered").toDouble()
+                        val total: Double = totalStatisticsObject.getString("confirmed").toDouble()
+
+                        val deathRate = (deaths / total) * 100
+                        tvDeathsRate.text = ("%.2f".format(deathRate) + "%")
+
+                        val recoveredRate = (recovered / total) * 100
+                        tvRecoveredRate.text = ("%.2f".format(recoveredRate) + "%")
 
 
                         for (i in 1 until 33) {
@@ -161,6 +171,3 @@ class CasesFragment : Fragment() {
         }
     }
     }
-// news api key -> f56265da815940c781ee2ac47e3f1109
-
-

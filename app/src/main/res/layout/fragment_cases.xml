@@ -44,49 +44,54 @@
                 android:text="@string/last_updated_number" />
 
         </RelativeLayout>
-    
-    <LinearLayout
-        android:id="@+id/firstLinearLayout"
-        android:layout_below="@+id/lastUpdatedLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="4">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
+            android:id="@+id/totalCasesCard"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/lastUpdatedLayout"
             app:cardBackgroundColor="#B6B817"
-            android:layout_weight="2"
             app:cardCornerRadius="15dp"
-            android:layout_margin="5dp">
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvTotalCasesStatic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/total_cases"
-                android:textSize="20sp"
-                android:layout_margin="5dp"
-                android:padding="5dp"
-                android:textStyle="bold"
-                android:textColor="#fff"/>
+                <TextView
+                    android:id="@+id/tvTotalCases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_cases_number"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"/>
 
-            <TextView
-                android:id="@+id/tvTotalCases"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/total_cases_number"
-                android:textSize="18sp"
-                android:layout_margin="5dp"
-                android:padding="5dp"
-                android:layout_below="@+id/tvTotalCasesStatic"
-                android:textColor="#fff"/>
+                <TextView
+                    android:id="@+id/tvTotalCasesStatic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvTotalCases"
+                    android:text="@string/total_cases"
+                    android:textSize="18sp"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:textColor="#fff"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
+    
+    <LinearLayout
+        android:id="@+id/secondLinearLayout"
+        android:layout_below="@+id/totalCasesCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4">
+
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
@@ -101,37 +106,42 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/tvDeathsStatic"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/deaths"
-                    android:textSize="20sp"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
-                    android:textStyle="bold"
-                    android:textColor="#fff"/>
-
-                <TextView
                     android:id="@+id/tvDeaths"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/deaths_number"
-                    android:textSize="18sp"
+                    android:textSize="28sp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tvDeathsStatic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvDeaths"
+                    android:text="@string/deaths"
+                    android:textSize="16sp"
                     android:layout_margin="5dp"
                     android:padding="5dp"
-                    android:layout_below="@+id/tvDeathsStatic"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tvDeathsRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvDeaths"
+                    android:layout_alignParentEnd="true"
+                    android:text="--"
+                    android:textSize="15sp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:padding="5dp"
                     android:textColor="#fff"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/secondLinearLayout"
-        android:layout_below="@+id/firstLinearLayout"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="6">
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
@@ -146,108 +156,134 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/tvRecoveredStatic"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvRecovered"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/recovered_number"
+                    android:textSize="28sp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tvRecoveredStatic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvRecovered"
                     android:text="@string/recovered"
                     android:textSize="16sp"
                     android:layout_margin="5dp"
                     android:padding="5dp"
-                    android:textStyle="bold"
                     android:textColor="#fff"/>
 
                 <TextView
-                    android:id="@+id/tvRecovered"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvRecoveredRate"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/recovered_number"
-                    android:textSize="14sp"
-                    android:layout_margin="5dp"
+                    android:layout_below="@+id/tvRecovered"
+                    android:layout_alignParentEnd="true"
+                    android:text="--"
+                    android:textSize="15sp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
                     android:padding="5dp"
-                    android:layout_below="@+id/tvRecoveredStatic"
                     android:textColor="#fff"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="#43b3bf"
-            android:layout_weight="2"
-            app:cardCornerRadius="15dp"
-            android:layout_margin="5dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/tvActiveCasesStatic"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/active_cases"
-                    android:textSize="16sp"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
-                    android:textStyle="bold"
-                    android:textColor="#fff"/>
-
-                <TextView
-                    android:id="@+id/tvActiveCases"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/active_cases_number"
-                    android:textSize="14sp"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
-                    android:layout_below="@+id/tvActiveCasesStatic"
-                    android:textColor="#fff"/>
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="#2463b5"
-            android:layout_weight="2"
-            app:cardCornerRadius="15dp"
-            android:layout_margin="5dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/tvNewCasesStatic"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/new_cases"
-                    android:textSize="16sp"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
-                    android:textStyle="bold"
-                    android:textColor="#fff"/>
-
-                <TextView
-                    android:id="@+id/tvNewCases"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/new_cases_number"
-                    android:textSize="14sp"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"
-                    android:layout_below="@+id/tvNewCasesStatic"
-                    android:textColor="#fff"/>
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/thirdLinearLayout"
+            android:layout_below="@+id/secondLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4">
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#43b3bf"
+                android:layout_weight="2"
+                app:cardCornerRadius="15dp"
+                android:layout_margin="5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tvActiveCases"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/active_cases_number"
+                        android:textSize="28sp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:textColor="#fff"/>
+
+                    <TextView
+                        android:id="@+id/tvActiveCasesStatic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvActiveCases"
+                        android:text="@string/active_cases"
+                        android:textSize="16sp"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        android:textColor="#fff"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#2463b5"
+                android:layout_weight="2"
+                app:cardCornerRadius="15dp"
+                android:layout_margin="5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tvNewCases"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/new_cases_number"
+                        android:textSize="28sp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold"
+                        android:textColor="#fff"/>
+
+                    <TextView
+                        android:id="@+id/tvNewCasesStatic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvNewCases"
+                        android:text="@string/new_cases"
+                        android:textSize="16sp"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        android:textColor="#fff"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerDashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/secondLinearLayout"
+        android:layout_below="@+id/thirdLinearLayout"
         android:layout_marginTop="20dp"
         android:padding="10dp" />
 
